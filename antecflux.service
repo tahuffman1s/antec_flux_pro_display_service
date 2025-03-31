@@ -1,0 +1,14 @@
+[Unit]
+Description=Antec FLUX Pro Display Service
+After=multi-user.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/antecfluxpro
+ExecStart=/opt/antecfluxpro/bin/python /opt/antecfluxpro/antec_display_service.py
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+
+
