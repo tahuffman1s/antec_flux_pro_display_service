@@ -7,8 +7,10 @@ Type=simple
 WorkingDirectory=/opt/antecfluxpro
 ExecStart=/opt/antecfluxpro/bin/python /opt/antecfluxpro/antec_display_service.py
 Restart=on-failure
+# Create log directory with proper permissions
+ExecStartPre=/bin/mkdir -p /var/log/antecflux
+ExecStartPre=/bin/chown -R root:root /var/log/antecflux
+ExecStartPre=/bin/chmod -R 755 /var/log/antecflux
 
 [Install]
 WantedBy=multi-user.target
-
-
